@@ -18,3 +18,7 @@ This maybe the first real application that I will concentrate the most in recent
 ------
 1.Porting programming language by both Java and Python
 2.Establishing new user interface by using Google material design
+
+2019-04-10
+------
+Restart the project that I should work on by purpose
