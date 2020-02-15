@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EnBook</string>
+    <string name="alpha">Alpha v0,1</string>
+    <string name="download">Download</string>
+    <string name="search">Search</string>
+    <string name="feedback">Feedback</string>
+    <string name="menuExit">Exit</string>
+    <string name="title_activity_download">Download</string>
+</resources>
