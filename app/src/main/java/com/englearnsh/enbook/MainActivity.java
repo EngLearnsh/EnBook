@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -15,22 +17,51 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<Book> bookList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        createBookList();
+
+        // Create Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Create DrawerLayout and ActionBar
         mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         }
+
+        // Create RecyclerView
+        recyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // specify an adapter (see also next example)
+        BookAdapter adapter = new BookAdapter(bookList);
+        recyclerView.setAdapter(adapter);
+
+        // Alpha
         Toast.makeText(MainActivity.this, "Test Only", Toast.LENGTH_SHORT).show();
     }
 
@@ -78,4 +109,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    public void createBookList() {
+        Book grimm = new Book("Grimm's Fairy Tales", R.drawable.grimm_pic);
+        bookList.add(grimm);
+        Book andersen = new Book("Andersen's Fairy Tales", R.drawable.andersen_pic);
+        bookList.add(andersen);
+    }
 }
+
