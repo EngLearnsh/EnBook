@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.download:
                 Intent intent = new Intent("com.englearnsh.enbook.ACTION_START");
-                startActivity(intent);
+                startActivity(intent);                
                 break;
             case R.id.feedback:
                 ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
