@@ -1,5 +1,6 @@
 package com.englearnsh.enbook;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,9 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -22,6 +26,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static int isExit = 0;
     private DrawerLayout mDrawerLayout;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createBookList();
+        isExit = 0;
 
         // Create Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -61,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         BookAdapter adapter = new BookAdapter(bookList);
         recyclerView.setAdapter(adapter);
 
+        // final create book list
+        createBookList();
+
         // Alpha
         Toast.makeText(MainActivity.this, "Test Only", Toast.LENGTH_SHORT).show();
     }
@@ -78,7 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.download:
                 Intent intent = new Intent("com.englearnsh.enbook.ACTION_START");
-                startActivity(intent);                
+                startActivity(intent);
+                break;
+            case R.id.search_button:
+                onSearchRequested();
                 break;
             case R.id.feedback:
                 ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
@@ -115,6 +126,36 @@ public class MainActivity extends AppCompatActivity {
         bookList.add(grimm);
         Book andersen = new Book("Andersen's Fairy Tales", R.drawable.andersen_pic);
         bookList.add(andersen);
+        Book taon = new Book("Thousand and one night", R.drawable.taon_pic);
+        bookList.add(taon);
+    }
+
+    // Handler which implements twice exit
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            isExit--;
+            return false;
+        }
+    });
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            isExit++;
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if(isExit < 2) {
+            Toast.makeText(getApplicationContext(), "again", Toast.LENGTH_SHORT).show();
+            handler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
 
