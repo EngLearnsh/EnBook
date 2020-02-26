@@ -2,6 +2,8 @@
 # 忆阅
 一座动态的图书馆
 
+[English](https://github.com/EngLearnsh/EnBook/blob/master/README.md) | 中文
+
 ## 功能
 1. Material Design用户界面、体验
 2. 本地和网上的海量资源

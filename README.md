@@ -2,6 +2,8 @@
 # EnBook
 A dynamic e-book for everyone
 
+English | [中文](https://github.com/EngLearnsh/EnBook/blob/master/README_CN.md)
+
 ## Features
 1. Material Design UI/UX
 2. Local and online bookshelf with massive resources
