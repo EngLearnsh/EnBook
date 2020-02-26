@@ -85,17 +85,19 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.download:
-                Intent intent = new Intent("com.englearnsh.enbook.ACTION_START");
-                startActivity(intent);
+                Intent down_intent = new Intent("android.intent.action.DOWN_START");
+                startActivity(down_intent);
                 break;
             case R.id.search_button:
                 onSearchRequested();
                 break;
             case R.id.feedback:
-                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-                progressDialog.setMessage("Waiting for Internet connection");
-                progressDialog.setCancelable(true);
-                progressDialog.show();
+                Intent feed_intent = new Intent("android.intent.action.FEED_START");
+                startActivity(feed_intent);
+                //ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                //progressDialog.setMessage("Waiting for Internet connection");
+                //progressDialog.setCancelable(true);
+                //progressDialog.show();
                 break;
             case R.id.exit:
                 AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
