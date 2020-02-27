@@ -49,3 +49,4 @@ English | [中文](https://github.com/EngLearnsh/EnBook/blob/master/README_CN.md
 15. ~~Internet failure when using feedback~~
 16. ~~FC or ANR while using feedback~~
 17. No user-friendly-interface on Internet connection judgement
+18. No Appbar with back button in Feedback activity

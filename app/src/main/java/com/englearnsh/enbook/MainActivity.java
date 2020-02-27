@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -21,6 +22,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private SwipeRefreshLayout swipeRefresh;
     private List<Book> bookList = new ArrayList<>();
 
     @Override
@@ -69,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
         // final create book list
         createBookList();
 
+        swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.main_refresh);
+        swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh_bookList();
+            }
+        });
+
         // Alpha
         Toast.makeText(MainActivity.this, "Test Only", Toast.LENGTH_SHORT).show();
     }
@@ -94,17 +107,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.feedback:
                 Intent feed_intent = new Intent("android.intent.action.FEED_START");
                 startActivity(feed_intent);
-                //ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
-                //progressDialog.setMessage("Waiting for Internet connection");
-                //progressDialog.setCancelable(true);
-                //progressDialog.show();
                 break;
             case R.id.exit:
                 AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle("Exit");
-                dialog.setMessage("Are you sure you want to exit?");
-                dialog.setCancelable(true);
-                dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                dialog.setTitle("Exit")
+                        .setMessage("Are you sure you want to exit?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
@@ -132,6 +141,15 @@ public class MainActivity extends AppCompatActivity {
         bookList.add(taon);
     }
 
+    private void refresh_bookList() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+    }
+
     // Handler which implements twice exit
     Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -153,7 +171,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void exit() {
         if(isExit < 2) {
-            Toast.makeText(getApplicationContext(), "again", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "again", Toast.LENGTH_SHORT).show();
+            Snackbar.make(findViewById(R.id.main_coordinator), R.string.double_exit,
+                    Snackbar.LENGTH_SHORT)
+                    .show();
             handler.sendEmptyMessageDelayed(0, 2000);
         } else {
             super.onBackPressed();
