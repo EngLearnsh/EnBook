@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SwipeRefreshLayout swipeRefresh;
     private List<Book> bookList = new ArrayList<>();
+    private BookAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

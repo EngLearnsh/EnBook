@@ -14,7 +14,13 @@ English | [中文](https://github.com/EngLearnsh/EnBook/blob/master/README_CN.md
 7. Dynamic social platform
 ....
 
-## Current development status
+## Development status
+Currently, it is still in DEMO stage. By the time to reach alpha stage, the codes and functionalities will perform better in a more logical and efficient way
+
+2020-2-27
+1. Create Toolbar in Feedback
+2. Add Internet check before performing website
+
 2020-2-26
 1. Create RecyclerView for Main's bookList
 2. Searchbox added while clicking Search button
@@ -22,31 +28,8 @@ English | [中文](https://github.com/EngLearnsh/EnBook/blob/master/README_CN.md
 4. Feedback is redirected to GitHub Issues
 
 2020-2-15
-1. Create Activities and layouts for Main and Download manager
-2. Create DrawerLayout in Main to indicate Actionbar
-3. Create Toolbar in Main to indicate Nav / Download / Search / Menu buttons
-4. Create Nav header and sample menu buttons inside Nav
-5. Create Material AppBarLayout in Download
-6. Create floating action button in Download
-7. Toast indications are included in alpha stage
-8. Case determination when using Toolbar
-
-## Known issues
-1. ~~Search is not working in Main~~
-2. ~~Loop progress dialog when tapping Feedback~~
-3. No animation when tapping Nav button
-4. Settings insider Nav is not working
-5. Mismatch animation returning from Download to Main
-6. Floating button is not working inside Download
-7. ~~Built Apks install as a failure~~
-8. ~~Mismatch layout of RecyclerView which prevents interactions on Toolbar~~
-9. ~~Images might cover books' title in a small screen device~~
-10. Images perform a larger size in a small screen device
-11. No local search result and hints
-12. Bad animation and layout of searchbox
-13. ~~Handler may cause memory leak~~
-14. ~~Double click to exit is not working after reopening the app~~
-15. ~~Internet failure when using feedback~~
-16. ~~FC or ANR while using feedback~~
-17. No user-friendly-interface on Internet connection judgement
-18. No Appbar with back button in Feedback activity
+1. Demo development stage
+2. Create Activities for Main and Download
+3. Create Nav, Settings, Download, Search, Menu (Feedback and Exit) buttons
+4. Create floating button in Download
+5. Toast indications are included in alpha stage

@@ -1,5 +1,6 @@
 package com.englearnsh.enbook;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,25 +9,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
+    private Context mContext;
+
     private List<Book> mBookList;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        View bookView;
+        CardView bookView;
         ImageView bookImage;
         TextView bookName;
 
         public ViewHolder(View view) {
             super(view);
-            bookView = view;
+            bookView = (CardView) view;
             bookImage = view.findViewById(R.id.book_image);
             bookName = view.findViewById(R.id.book_name);
         }
+    }
+
+    public BookAdapter(List<Book> bookList) {
+        mBookList = bookList;
     }
 
     @NonNull
@@ -66,8 +74,5 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         return mBookList.size();
     }
 
-    public BookAdapter(List<Book> bookList) {
-        mBookList = bookList;
-    }
 
 }

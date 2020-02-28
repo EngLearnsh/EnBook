@@ -5,8 +5,11 @@
     <string name="search">Search</string>
     <string name="feedback">Feedback</string>
     <string name="menuExit">Exit</string>
+    <string name="cancel">Cancel</string>
     <string name="title_activity_download">Download</string>
     <string name="app_label"></string>
     <string name="search_hint">Type here to search</string>
     <string name="double_exit">Touch again to exit</string>
+    <string name="request_download">New Download</string>
+    <string name="confirm_download">Confirm</string>
 </resources>
