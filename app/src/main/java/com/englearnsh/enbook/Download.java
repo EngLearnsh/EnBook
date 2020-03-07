@@ -1,15 +1,19 @@
 package com.englearnsh.enbook;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
+import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -18,8 +22,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-public class Download extends AppCompatActivity {
+public class Download extends AppCompatActivity implements NewDownloadDialog.NoticeDialogListener {
 
+    public static final String DEBUG_TAG = "InputSample";
     private EditText edit;
 
     @Override
@@ -35,44 +40,33 @@ public class Download extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Coming soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                newDownloadWindow();
+                newDownloadDialog();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        edit = (EditText) findViewById(R.id.new_download);
     }
 
-    public void newDownloadWindow() {
-        DialogFragment newFragment = new newDownloadRequest();
-        newFragment.show(getSupportFragmentManager(), "user");
+    public void newDownloadDialog() {
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new NewDownloadDialog();
+        dialog.show(getSupportFragmentManager(), "user");
+    }
+
+    // The dialog fragment receives a reference to this Activity through the
+    // Fragment.onAttach() callback, which it uses to call the following methods
+    // defined by the NoticeDialogFragment.NoticeDialogListener interface
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        // User touched the dialog's positive button
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        String inputText = edit.getText().toString();
-        save(inputText);
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        // User touched the dialog's negative button
+
     }
 
-    public void save(String inputText) {
-        FileOutputStream out = null;
-        BufferedWriter writer = null;
-        try {
-            out = openFileOutput("data", Context.MODE_PRIVATE);
-            writer = new BufferedWriter(new OutputStreamWriter(out));
-            writer.write(inputText);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 
 }
