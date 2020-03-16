@@ -6,15 +6,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.DialogCompat;
 import androidx.fragment.app.DialogFragment;
-
-import java.util.Objects;
 
 public class NewDownloadDialog extends DialogFragment {
 
@@ -59,7 +55,7 @@ public class NewDownloadDialog extends DialogFragment {
         builder.setView(inflater.inflate(R.layout.create_new_download, null))
                 .setTitle(R.string.request_download)
                 // Add action buttons
-                .setPositiveButton(R.string.confirm_download, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                     @NonNull
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

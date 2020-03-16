@@ -48,7 +48,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             public void onClick(View view) {
                 int position = holder.getAdapterPosition();
                 Book book = mBookList.get(position);
-                Toast.makeText(view.getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), R.string.unavailable, Toast.LENGTH_SHORT).show();
             }
         });
         holder.bookImage.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +56,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             public void onClick(View view) {
                 int position = holder.getAdapterPosition();
                 Book book = mBookList.get(position);
-                Toast.makeText(view.getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), R.string.unavailable, Toast.LENGTH_SHORT).show();
             }
         });
         return holder;

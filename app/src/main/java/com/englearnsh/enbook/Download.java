@@ -38,7 +38,7 @@ public class Download extends AppCompatActivity implements NewDownloadDialog.Not
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Coming soon", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, R.string.unavailable, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 newDownloadDialog();
             }

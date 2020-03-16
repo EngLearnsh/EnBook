@@ -11,16 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -28,7 +27,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class Main extends AppCompatActivity {
 
     private static int isExit = 0;
     private DrawerLayout mDrawerLayout;
@@ -39,10 +38,13 @@ public class MainActivity extends AppCompatActivity {
     private List<Book> bookList = new ArrayList<>();
     private BookAdapter adapter;
 
+    String TAG = "Main_Debug";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG, "onCreate: ");
         isExit = 0;
 
         // Create Toolbar
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Create RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
+        recyclerView = findViewById(R.id.main_recycler_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         // final create book list
         createBookList();
 
-        swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.main_refresh);
+        swipeRefresh = findViewById(R.id.main_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -85,7 +87,43 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Alpha
-        Toast.makeText(MainActivity.this, "Test Only", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Main.this, R.string.test_sign, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
     }
 
     @Override
@@ -111,23 +149,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(feed_intent);
                 break;
             case R.id.exit:
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle("Exit")
-                        .setMessage("Are you sure you want to exit?")
+                AlertDialog.Builder dialog = new AlertDialog.Builder(Main.this);
+                dialog.setTitle(R.string.menu_exit)
+                        .setMessage(R.string.confirm_exit)
                         .setCancelable(true)
-                        .setView(new EditText(this))
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-                dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                dialog.show();
+                        .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
                 break;
              default:
                  break;
@@ -136,11 +174,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createBookList() {
-        Book grimm = new Book("Grimm's Fairy Tales", R.drawable.grimm_pic);
+        Book grimm = new Book(getString(R.string.example1), R.drawable.grimm_pic);
         bookList.add(grimm);
-        Book andersen = new Book("Andersen's Fairy Tales", R.drawable.andersen_pic);
+        Book andersen = new Book(getString(R.string.example2), R.drawable.andersen_pic);
         bookList.add(andersen);
-        Book taon = new Book("Thousand and one night", R.drawable.taon_pic);
+        Book taon = new Book(getString(R.string.example3), R.drawable.taon_pic);
         bookList.add(taon);
     }
 

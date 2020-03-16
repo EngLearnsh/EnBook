@@ -1,15 +1,21 @@
 <resources>
     <string name="app_name">EnBook</string>
-    <string name="alpha">Alpha v0,1</string>
+    <string name="alpha">Alpha v0.1</string>
     <string name="download">Download</string>
     <string name="search">Search</string>
     <string name="feedback">Feedback</string>
-    <string name="menuExit">Exit</string>
+    <string name="menu_exit">Exit</string>
     <string name="cancel">Cancel</string>
     <string name="title_activity_download">Download</string>
     <string name="app_label"></string>
     <string name="search_hint">Type here to search</string>
     <string name="double_exit">Touch again to exit</string>
     <string name="request_download">New Download</string>
-    <string name="confirm_download">Confirm</string>
+    <string name="confirm">Confirm</string>
+    <string name="example1">Grimm\'s Fairy Tales</string>
+    <string name="example2">Andersen\'s Fairy Tales</string>
+    <string name="example3">Thousand and one night</string>
+    <string name="unavailable">Coming soon</string>
+    <string name="confirm_exit">Are you sure you want to exit?</string>
+    <string name="test_sign">Test Only</string>
 </resources>
