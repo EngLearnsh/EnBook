@@ -9,7 +9,7 @@
         android:id="@+id/userIcon"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/nav_icon"
+        android:src="@drawable/haoyue_icon"
         android:layout_centerInParent="true" />
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Welcome to the test"
+        android:text="Welcome to Ead (皓月)"
         android:textColor="#FFF"
         android:textSize="14sp" />
 
