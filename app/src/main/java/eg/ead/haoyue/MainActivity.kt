@@ -1,12 +1,13 @@
 package eg.ead.haoyue
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
@@ -31,6 +32,13 @@ class MainActivity : BaseActivity() {
 
         // navview
         initNavItemListener()
+
+        binding.fab.setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type = "text/*"
+            startActivityForResult(intent, 2)
+        }
 
     }
 

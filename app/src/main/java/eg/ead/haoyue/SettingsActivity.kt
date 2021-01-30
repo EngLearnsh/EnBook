@@ -1,6 +1,5 @@
 package eg.ead.haoyue
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class SettingsActivity : BaseActivity() {
