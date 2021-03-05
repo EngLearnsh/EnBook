@@ -7,7 +7,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "eg.ead.haoyue"
+        applicationId "eg.haoyue"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1

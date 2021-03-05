@@ -1,4 +1,4 @@
-package eg.ead.haoyue.util
+package eg.haoyue.util
 
 import android.content.Context
 import android.os.Build

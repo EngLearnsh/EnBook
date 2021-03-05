@@ -1,4 +1,4 @@
-package eg.ead.haoyue
+package eg.haoyue
 
 import android.app.Activity
 

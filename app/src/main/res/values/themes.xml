@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Ead" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.Haoyue" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#EDC02C</item>
         <item name="colorPrimaryVariant">#BFEDC02C</item>

@@ -3,15 +3,15 @@
   <component name="deploymentTargetDropDown">
     <targetSelectedWithDropDown>
       <Target>
-        <type value="QUICK_BOOT_TARGET" />
+        <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
             <type value="SERIAL_NUMBER" />
-            <value value="emulator-5554" />
+            <value value="adb-fffe2d42-fDbMuT._adb-tls-connect._tcp." />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2021-03-04T15:47:11.725704Z" />
+    <timeTargetWasSelectedWithDropDown value="2021-03-05T15:25:28.856154Z" />
   </component>
 </project>

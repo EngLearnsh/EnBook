@@ -1,8 +1,8 @@
-package eg.ead.haoyue
+package eg.haoyue.activity
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import eg.ead.haoyue.databinding.ActivitySettingsBinding
+import eg.haoyue.databinding.ActivitySettingsBinding
 
 class SettingsActivity : BaseActivity() {
 

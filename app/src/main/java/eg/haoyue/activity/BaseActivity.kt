@@ -1,8 +1,9 @@
-package eg.ead.haoyue
+package eg.haoyue.activity
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import eg.haoyue.ActivityCollector
 
 open class BaseActivity : AppCompatActivity() {
 

@@ -1,26 +1,18 @@
-package eg.ead.haoyue
+package eg.haoyue.activity
 
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import com.google.android.material.navigation.NavigationView
-import eg.ead.haoyue.databinding.ActivityMainBinding
-import eg.ead.haoyue.util.HWInfoUtil
-import java.io.FileReader
+import eg.haoyue.R
+import eg.haoyue.databinding.ActivityMainBinding
+import eg.haoyue.util.HWInfoUtil
 
 class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mContext : Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
